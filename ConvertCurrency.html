@@ -6,23 +6,71 @@
     <title>CC</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script>
+
+        function getData(){
+            // var rate;
+            let fetch_ = fetch("http://data.fixer.io/api/latest?access_key=d3b849e73a393f8193f4d9f95fbb1203");
+            let response_ = fetch_.then(response => response.json())
+            let data_ = response_.then(data => {
+                    // const currency = document.querySelector('#currency').value.toUpperCase();
+                    rate = data.rates;
+                    Dropdown(rate);
+                })
+            
+        }
+
+        function Dropdown(rate) {
+            // console.log(rate);
+            for (let currency in rate){
+                // console.log(currency);
+                const dropdownElement = document.getElementById("dropdown");
+                let newElement = document.createElement("option");
+                newElement.text = currency;
+                newElement.value = currency;
+                dropdownElement.appendChild(newElement);
+            }
+
+            //setup another dropdown
+            const dropdownElement = document.getElementById("dropdown");
+            // const dropdown2 = document.getElementsByClassName("dropdown2");
+            const dropdown2 = document.getElementById("dropdown2");
+            let clone = dropdownElement.cloneNode(true);
+            clone.id = "dropdownSecond";
+            dropdown2.appendChild(clone);
+        }
+
+        //JS CODE STARTS WORKING
+        var rate;
+        getData();
+
+
         document.addEventListener("DOMContentLoaded",()=>{
+
             document.querySelector('form').onsubmit = function() {
 
                 //Taking data from form
-                var from_= document.getElementById("inp").value;
-                var to_ = document.getElementById("out").value;
-                var amount = document.getElementById("amt").value;
+                // var from_= document.getElementById("inp").value;
+                // var to_ = document.getElementById("out").value;
+                // var amount = document.getElementById("amt").value;
                 // console.log(`${typeof(from_)}`);
                 
+                //USING DROPDOWNS
+                const dropdownElements = document.getElementsByTagName("select");
+                var from_= dropdownElements[0].value;
+                // console.log(from_);
+                var to_ = dropdownElements[1].value;
+                // console.log(to_);
+                var amount = document.getElementById("amt").value;
 
-                fetch("http://data.fixer.io/api/latest?access_key=d3b849e73a393f8193f4d9f95fbb1203")
-                .then(response => response.json())
-                .then(data => {
+
+
+                // fetch("http://data.fixer.io/api/latest?access_key=d3b849e73a393f8193f4d9f95fbb1203")
+                // .then(response => response.json())
+                // .then(data => {
                     // const currency = document.querySelector('#currency').value.toUpperCase();
 
                     // Get rate from data
-                    const rate = data.rates;
+                    // const rate = data.rates;
                     // console.log(rate.USD);
 
                     //LOGIC
@@ -38,7 +86,7 @@
 
                     //changing DOM
                     document.querySelector("h4").innerHTML= afterConvert;
-                })
+                // })
 
 
                 return false;
@@ -50,11 +98,20 @@
     <form>
         <p class="container my-3">Enter the Currency names as the 3 letters abbreviations used.</p><br>
         <div class="container">
-            <input type="text" id="inp" name="from" placeholder="FROM">
+
+            <span class="dropdown">
+                <select id="dropdown">
+                    <option value="none" selected disabled>--SELECT--</option>
+                </select>
+            </span>
+
+            <!-- <input type="text" id="inp" name="from" placeholder="FROM"> -->
+            <span id="dropdown2">
+
+            </span>
+            <!-- <input type="text" id="out" name="to" placeholder="TO"> -->
             <br>
-            <input type="text" id="out" name="to" placeholder="TO">
-            <br>
-            <input type="text" id="amt" name="amount" placeholder="AMOUNT">
+            <input type="number" id="amt" name="amount" placeholder="AMOUNT" min="0">
             <input type="submit" value="SUBMIT" >
         </div>
         
