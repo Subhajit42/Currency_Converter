@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CC</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="CC.css">
     <script>
 
         function getData(){
@@ -51,7 +52,7 @@
                 //Taking data from form
                 // var from_= document.getElementById("inp").value;
                 // var to_ = document.getElementById("out").value;
-                // var amount = document.getElementById("amt").value;
+                // var amount = document.getElementById("InputAmt").value;
                 // console.log(`${typeof(from_)}`);
                 
                 //USING DROPDOWNS
@@ -60,7 +61,7 @@
                 // console.log(from_);
                 var to_ = dropdownElements[1].value;
                 // console.log(to_);
-                var amount = document.getElementById("amt").value;
+                var amount = document.getElementById("InputAmt").value;
 
 
 
@@ -85,7 +86,7 @@
                     // console.log(result.toFixed(3));
 
                     //changing DOM
-                    document.querySelector("h4").innerHTML= afterConvert;
+                    document.querySelector("#OutputAmt").placeholder= afterConvert;
                 // })
 
 
@@ -95,30 +96,83 @@
     </script>
 </head>
 <body>
-    <form>
-        <p class="container my-3">Enter the Currency names as the 3 letters abbreviations used.</p><br>
-        <div class="container">
+    <!-- <form>
+        
+        <center><h1>Currency Converter</h1></center>
+        <div class="container" id="mainElement">
 
-            <span class="dropdown">
+            <div class="container" id="inputCurr">
                 <select id="dropdown">
                     <option value="none" selected disabled>--SELECT--</option>
                 </select>
-            </span>
 
+
+                <span id="dropdown2">
+
+                </span>
+                
+            </div>
+
+            <div class="container" id="outputCurr">
+
+                <input type="number" id="InputAmt" name="amount" placeholder="AMOUNT" min="0">
+                <input type="submit" value="SUBMIT" >
+                <input disabled type="number" id="OutputAmt" placeholder="AMOUNT" min="0">
+
+            </div>
+
+            
             <!-- <input type="text" id="inp" name="from" placeholder="FROM"> -->
-            <span id="dropdown2">
-
-            </span>
+            
             <!-- <input type="text" id="out" name="to" placeholder="TO"> -->
-            <br>
-            <input type="number" id="amt" name="amount" placeholder="AMOUNT" min="0">
-            <input type="submit" value="SUBMIT" >
+            
+            
+        <!-- </div>
+        
+        
+
+    </form> -->
+
+
+    <form>
+        
+        <center><h1>Currency Converter</h1></center>
+
+        <div class="container" id="blurBg">
+            <div class="container" id="mainElement">
+
+                <div class="container" id="inputCurr">
+                    <select id="dropdown">
+                        <option value="none" selected disabled>--SELECT--</option>
+                    </select>
+    
+                    <input type="number" id="InputAmt" name="amount" placeholder="AMOUNT" min="0">
+    
+                </div>
+    
+                <input class="btn btn-success" type="submit" value="SUBMIT" id="submitBtn">
+    
+                <div class="container" id="outputCurr">
+    
+                    <div id="dropdown2">
+    
+                    </div>
+                    
+                    <input disabled type="number" id="OutputAmt" placeholder="AMOUNT" min="0">
+    
+                </div>
+    
+                
+                <!-- <input type="text" id="inp" name="from" placeholder="FROM"> -->
+                
+                <!-- <input type="text" id="out" name="to" placeholder="TO"> -->
+                
+                
+            </div>
         </div>
         
-        <div class="container">
-            <span>Amount after conversion = </span>
-            <h4>0</h4>
-        </div>
+        
+        
 
     </form>
 </body>

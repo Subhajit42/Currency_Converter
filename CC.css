@@ -1,0 +1,91 @@
+/* #inputCurr,#outputCurr{
+    background-color: antiquewhite;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+#mainElement{
+    display: flex;
+    flex-direction: column;
+}
+
+#InputAmt,#OutputAmt{
+    height: 20vh;
+    font-size: 5vh;
+    width: 25vw;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px){
+    body{
+        background-color: aliceblue;
+    }
+} */
+
+
+body{
+    background-image: url("https://thumbs.dreamstime.com/b/mix-us-dollars-bulgarian-leva-usd-bgn-banknotes-coins-providing-great-options-to-be-used-illustrating-subjects-as-236841452.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1{
+    margin: 20px;
+    color: azure;
+    font-size: 7vh;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+.btn{
+    font-size: large;
+}
+
+#blurBg {
+    background-color: #ffe4c4d4;
+    height: 40vh;
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#inputCurr, #outputCurr {
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: fit-content;
+    align-content: center;
+    align-items: flex-start;
+}
+
+#mainElement{
+    padding: 0px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#submitBtn{
+    margin: 20px;
+}
+
+@media screen and (max-width: 600px){
+    body{
+        font-size: x-large;
+    }
+}
