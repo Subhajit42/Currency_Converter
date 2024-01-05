@@ -1,32 +1,3 @@
-/* #inputCurr,#outputCurr{
-    background-color: antiquewhite;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-}
-
-#mainElement{
-    display: flex;
-    flex-direction: column;
-}
-
-#InputAmt,#OutputAmt{
-    height: 20vh;
-    font-size: 5vh;
-    width: 25vw;
-    text-align: center;
-}
-
-@media screen and (max-width: 600px){
-    body{
-        background-color: aliceblue;
-    }
-} */
-
-
 body{
     background-image: url("https://thumbs.dreamstime.com/b/mix-us-dollars-bulgarian-leva-usd-bgn-banknotes-coins-providing-great-options-to-be-used-illustrating-subjects-as-236841452.jpg");
     background-repeat: no-repeat;
