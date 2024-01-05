@@ -1,6 +1,9 @@
+const data = require("./AccessKey.json")
+
+
 function getData(){
     // var rate;
-    let fetch_ = fetch("http://data.fixer.io/api/latest?access_key=d3b849e73a393f8193f4d9f95fbb1203");
+    let fetch_ = fetch(`http://data.fixer.io/api/latest?access_key=${data.key}`);
     let response_ = fetch_.then(response => response.json())
     let data_ = response_.then(data => {
             // const currency = document.querySelector('#currency').value.toUpperCase();
@@ -29,6 +32,8 @@ function Dropdown(rate) {
     clone.id = "dropdownSecond";
     dropdown2.appendChild(clone);
 }
+
+
 
 //JS CODE STARTS WORKING
 var rate;
